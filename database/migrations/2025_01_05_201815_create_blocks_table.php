@@ -9,10 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('blocks', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('difficulty');
+            $table->text('description');
             $table->timestamps();
         });
     }
