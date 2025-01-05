@@ -16,6 +16,13 @@
                 <a class="navbar-brand" href="{{ url('/') }}"><i class="mdi mdi-home mdi-48px"></i></a>
                 <ul class="navbar-nav ml-auto">
                     @if(auth()->user()->admin)
+
+                        <li>
+                            <a href="{{ route('blocks.index') }}" class="nav-link"><i class="mdi mdi-pencil mdi-48px"></i></a>
+                        </li>
+
+
+
                         <li class="nav-item">
                             <span class="nav-link text-warning"> <i class="mdi mdi-shield mdi-48px"></i></span>
                         </li>
