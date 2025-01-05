@@ -14,6 +14,11 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="{{ url('/') }}">Climbing Leaderboard</a>
                 <ul class="navbar-nav ml-auto">
+                    @if(auth()->user()->admin)
+                        <li class="nav-item">
+                            <span class="nav-link text-warning">Admin</span>
+                        </li>
+                    @endif
                     <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="POST"> 
