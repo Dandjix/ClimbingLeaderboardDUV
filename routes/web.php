@@ -28,3 +28,8 @@ Route::prefix('blocks')->name('blocks.')->group(function () {
     Route::put('{id}', [BlockController::class, 'update'])->name('update');
     Route::delete('{id}', [BlockController::class, 'destroy'])->name('destroy'); 
 });
+
+
+use App\Http\Controllers\ClimbController;
+
+Route::post('/toggle-climb/{blockId}', [ClimbController::class, 'toggleClimb'])->name('toggleClimb');

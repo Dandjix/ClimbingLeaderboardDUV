@@ -43,6 +43,18 @@
                                 @else
                                     <span class="badge bg-secondary">Not Climbed</span>
                                 @endif
+
+                                <form action="{{ route('toggleClimb', ['blockId' => $block->id]) }}" method="POST">
+                                    @csrf    
+                                    <button type="submit">
+                                        @if(in_array($block->id, $climbedBlocks))
+                                            <span class="badge bg-danger">Unmark</span>
+                                        @else
+                                            <span class="badge bg-success">Mark</span>
+                                        @endif
+                                    </button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
