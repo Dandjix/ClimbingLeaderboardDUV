@@ -40,38 +40,22 @@
             <div class="row">
                 @foreach($blocks as $block)
                     <div class="col-md-4">
-                        <div class="card mb-4">
+                        <div class="card mb-4" 
+                             style="background-color: {{ in_array($block->id, $climbedBlocks) ? '#d4edda' : '#f8d7da' }}; border: 1px solid {{ in_array($block->id, $climbedBlocks) ? '#c3e6cb' : '#f5c6cb' }};">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $block->name }}</h5>
                                 <p class="card-text">{{ $block->description }}</p>
                                 <p><strong>Difficulty:</strong> {{ $block->difficulty }}</p>
 
-                                <!-- Show if the user has climbed the block -->
-                                @if(in_array($block->id, $climbedBlocks))
-                                    <span class="badge bg-success">
-                                        <i class="mdi mdi-check-circle"></i> Climbed
-                                    </span>
-                                @else
-                                    <span class="badge bg-secondary">
-                                        <i class="mdi mdi-minus-circle"></i> Not Climbed
-                                    </span>
-                                @endif
-
+                                <!-- Form for marking/unmarking the block -->
                                 <form action="{{ route('toggleClimb', ['blockId' => $block->id]) }}" method="POST">
-                                    @csrf    
-                                    <button type="submit">
-                                        @if(in_array($block->id, $climbedBlocks))
-                                            <span class="badge bg-danger">
-                                                <i class="mdi mdi-close-circle"></i> Unmark
-                                            </span>
-                                        @else
-                                            <span class="badge bg-success">
-                                                <i class="mdi mdi-check-circle"></i> Mark
-                                            </span>
-                                        @endif
+                                    @csrf
+                                    <button type="submit" class="btn btn-block"
+                                        style="background-color: {{ in_array($block->id, $climbedBlocks) ? '#155724' : '#721c24' }}; border: none; color: white;">
+                                        <i class="mdi mdi-checkbox-marked-circle-outline"></i> 
+                                        {{ in_array($block->id, $climbedBlocks) ? 'Unmark as Climbed' : 'Mark as Climbed' }}
                                     </button>
                                 </form>
-
                             </div>
                         </div>
                     </div>
