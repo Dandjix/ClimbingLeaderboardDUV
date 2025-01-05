@@ -62,7 +62,7 @@
                 @endforeach
             </div>
         @else
-            <h2 class="mt-5">Climbing Blocks</h2>
+            <h2 class="mt-5">Climbing Blocks <i class="mdi mdi-chart-bubble"></i></h2>
             <div class="row">
                 @foreach($blocks as $block)
                     <div class="col-md-4">
@@ -80,11 +80,11 @@
         @endif
 
         <!-- Show admin panel link if user is admin -->
-        @if(auth()->user() && auth()->user()->admin)
+        <!-- @if(auth()->user() && auth()->user()->admin)
             <div class="mt-4">
                 <h3>Admin Panel</h3>
                 <a href="{{ route('blocks.index') }}" class="btn btn-warning">Manage Blocks</a>
             </div>
-        @endif
+        @endif -->
     </div>
 @endsection
