@@ -78,7 +78,7 @@
                 @endforeach
             </div>
         @else
-            <h2 class="mt-5">Climbing Blocks</h2>
+            <h2 class="mt-5">Climbing Blocks <i class="mdi mdi-chart-bubble"></i></h2>
             <div class="row">
                 @foreach($blocks as $block)
                     <div class="col-md-4">
