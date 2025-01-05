@@ -26,6 +26,6 @@ class Block extends Model
     public function getScoreAttribute()
     {
         $userCount = $this->users()->count();
-        return $userCount > 0 ? 100 / $userCount : 0;
+        return $userCount > 0 ? 100 / $userCount : 100;
     }
 }

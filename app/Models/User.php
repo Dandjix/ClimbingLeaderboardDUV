@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'admin'
     ];
 
     /**
@@ -54,5 +55,18 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function getScoreAttribute()
+    {
+        // Fetch all blocks the user has climbed
+        $blocks = $this->blocks;
+
+        // Sum up the score of each block
+        $totalScore = $blocks->sum(function ($block) {
+            return $block->score; // This will call the getScoreAttribute() method from the Block model
+        });
+
+        return $totalScore;
     }
 }
