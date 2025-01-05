@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth'); // Ensure the user is logged in
+        // Only require authentication for user-specific data, but allow viewing the page unauthenticated
     }
 
     public function index()
@@ -18,11 +18,14 @@ class HomeController extends Controller
         // Fetch all climbing blocks
         $blocks = Block::all();
 
-        // Get the currently logged-in user
+        // Get the currently logged-in user, or null if not authenticated
         $user = Auth::user();
 
-        // Get the blocks that the user has climbed
-        $climbedBlocks = $user->blocks()->pluck('blocks.id')->toArray();
+        // If the user is logged in, fetch their climbed blocks
+        $climbedBlocks = [];
+        if ($user) {
+            $climbedBlocks = $user->blocks()->pluck('blocks.id')->toArray();
+        }
 
         // Get the top users based on the number of blocks they've climbed
         $topUsers = User::withCount('blocks')
