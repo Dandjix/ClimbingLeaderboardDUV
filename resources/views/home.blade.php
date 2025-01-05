@@ -11,15 +11,15 @@
                 <tr>
                     <th>Rank</th>
                     <th>User</th>
-                    <th>Climbs</th>
+                    <th>Score</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($topUsers as $index => $user)
                     <tr>
-                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $user->rank }}</td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->blocks_count }}</td>
+                        <td>{{ $user->score}}</td>
                     </tr>
                 @endforeach
             </tbody>
