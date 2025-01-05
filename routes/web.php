@@ -30,3 +30,7 @@ Route::group(['prefix' => 'blocks', 'middleware' => 'auth'], function () {
     Route::delete('{block}', [BlockController::class, 'destroy'])->name('blocks.destroy'); // Suppression d'un bloc
 });
 
+
+use App\Http\Controllers\ClimbController;
+
+Route::post('/toggle-climb/{blockId}', [ClimbController::class, 'toggleClimb'])->name('toggleClimb');
