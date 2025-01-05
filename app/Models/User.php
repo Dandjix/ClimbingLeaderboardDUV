@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function blocks()
+    {
+        return $this->belongsToMany(Block::class, 'climbs');
+    }
 }
