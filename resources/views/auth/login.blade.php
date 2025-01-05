@@ -3,12 +3,6 @@
 @section('content')
     <div class="container">
         <h1 class="mb-4">Login</h1>
-
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
-
         <!-- Display validation errors -->
         @if ($errors->any())
             <div class="alert alert-danger">
