@@ -20,11 +20,13 @@ Route::post('register', [RegisterController::class, 'register']);
 
 
 use App\Http\Controllers\BlockController;
-Route::prefix('blocks')->name('blocks.')->group(function () {
-    Route::get('/', [BlockController::class, 'index'])->name('index');
-    Route::get('create', [BlockController::class, 'create'])->name('create');
-    Route::post('/', [BlockController::class, 'store'])->name('store');
-    Route::get('{id}/edit', [BlockController::class, 'edit'])->name('edit');
-    Route::put('{id}', [BlockController::class, 'update'])->name('update');
-    Route::delete('{id}', [BlockController::class, 'destroy'])->name('destroy'); 
+Route::get('/blocks', [BlockController::class, 'index'])->name('blocks.index'); // Affichage de la liste des blocs
+// Routes protégées pour les administrateurs (création, modification, suppression)
+Route::group(['prefix' => 'blocks', 'middleware' => 'auth'], function () {
+    Route::get('/create', [BlockController::class, 'create'])->name('blocks.create'); // Création d'un bloc
+    Route::post('/', [BlockController::class, 'store'])->name('blocks.store'); // Enregistrement d'un bloc
+    Route::get('{block}/edit', [BlockController::class, 'edit'])->name('blocks.edit'); // Formulaire d'édition
+    Route::put('{block}', [BlockController::class, 'update'])->name('blocks.update'); // Mise à jour d'un bloc
+    Route::delete('{block}', [BlockController::class, 'destroy'])->name('blocks.destroy'); // Suppression d'un bloc
 });
+
