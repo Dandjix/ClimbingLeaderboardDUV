@@ -101,11 +101,6 @@
                 <h3>Admin Panel</h3>
                 <a href="{{ route('blocks.index') }}" class="btn btn-warning">Manage Blocks</a>
             </div>
-        @else
-        <!-- Button to view blocks (Visible for all users) -->
-        <div class="mt-4">
-            <a href="{{ route('blocks.index') }}" class="btn btn-primary">View Climbing Blocks</a>
-        </div>
         @endif
     </div>
 @endsection
