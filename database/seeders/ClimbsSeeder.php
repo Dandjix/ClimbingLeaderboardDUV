@@ -10,17 +10,24 @@ class ClimbsSeeder extends Seeder
 {
     public function run()
     {
-        // Simulating climbs
-        $user1 = User::where('email', 'john@example.com')->first();
-        $user2 = User::where('email', 'jane@example.com')->first();
+        // Fetch all users and blocks
+        $users = User::all();
+        $blocks = Block::all();
 
-        // John climbs Block 1 and Block 2
-        $block1 = Block::where('name', 'Block 1')->first();
-        $block2 = Block::where('name', 'Block 2')->first();
-        $user1->blocks()->attach([$block1->id, $block2->id]);
+        // Ensure there are enough users and blocks
+        if ($users->isEmpty() || $blocks->isEmpty()) {
+            return;
+        }
 
-        // Jane climbs Block 2 and Block 3
-        $block3 = Block::where('name', 'Block 3')->first();
-        $user2->blocks()->attach([$block2->id, $block3->id]);
+        // Generate 50 climbs
+        for ($i = 0; $i < 100; $i++) {
+            $randomUser = $users->random();
+            $randomBlock = $blocks->random();
+
+            // Attach the block to the user if not already climbed
+            if (!$randomUser->blocks->contains($randomBlock->id)) {
+                $randomUser->blocks()->attach($randomBlock->id);
+            }
+        }
     }
 }
