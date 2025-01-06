@@ -28,7 +28,17 @@
                     @endif
 
                     <li class="nav-item">
-                        <a href="{{ route('account') }}" class="nav-link"><i title="Account" class="mdi mdi-account mdi-48px"></i></a>
+                        <a href="{{ route('account') }}" class="nav-link">
+                            @if (auth()->user()->profile_picture)
+                                <img title="Account" 
+                                src="{{ asset('storage/' . auth()->user()->profile_picture) }}" 
+                                alt="PP" 
+                                class="img-thumbnail rounded-circle" 
+                                style="width: 64px; height: 64px; object-fit: cover;">
+                            @else
+                                <i title="Account" class="mdi mdi-account mdi-48px"></i>
+                            @endif
+                        </a>
                     </li>
 
                     <li class="nav-item">

@@ -16,7 +16,18 @@
         <div class="card-body">
             <p><strong>Email:</strong> {{ $user->email }}</p>
             <p><strong>Score:</strong> {{ number_format($user->score, 1) }}</p>
-            <!-- <p><strong>Admin:</strong> {{ $user->admin ? 'Yes' : 'No' }}</p> -->
+            
+            <form action="{{ route('account.update') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+
+                <div class="mb-3">
+                    <label for="profile_picture" class="form-label">Profile Picture</label>
+                    <input type="file" name="profile_picture" id="profile_picture" class="form-control">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
         </div>
     </div>
 
