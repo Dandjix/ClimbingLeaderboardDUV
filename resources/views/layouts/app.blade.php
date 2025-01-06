@@ -19,12 +19,6 @@
                     <li>
                         <a href="{{ route('blocks.index') }}" class="nav-link"><i title="Edit blocks" class="mdi mdi-pencil mdi-48px"></i></a>
                     </li>
-
-
-
-                    <li class="nav-item">
-                        <span class="nav-link text-warning"> <i title="Administrator" class="mdi mdi-shield mdi-48px"></i></span>
-                    </li>
                     @endif
 
                     <li class="nav-item">
