@@ -13,42 +13,42 @@
         <!-- Navbar or any other common components -->
         @auth
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="{{ url('/') }}"><i class="mdi mdi-home mdi-48px"></i></a>
+                <a class="navbar-brand" href="{{ url('/') }}"><i title="Home" class="mdi mdi-home mdi-48px"></i></a>
                 <ul class="navbar-nav ml-auto">
                     @if(auth()->user()->admin)
                     <li>
-                        <a href="{{ route('blocks.index') }}" class="nav-link"><i class="mdi mdi-pencil mdi-48px"></i></a>
+                        <a href="{{ route('blocks.index') }}" class="nav-link"><i title="Edit blocks" class="mdi mdi-pencil mdi-48px"></i></a>
                     </li>
 
 
 
                     <li class="nav-item">
-                        <span class="nav-link text-warning"> <i class="mdi mdi-shield mdi-48px"></i></span>
+                        <span class="nav-link text-warning"> <i title="Administrator" class="mdi mdi-shield mdi-48px"></i></span>
                     </li>
                     @endif
 
                     <li class="nav-item">
-                        <a href="{{ route('account') }}" class="nav-link"><i class="mdi mdi-account mdi-48px"></i></a>
+                        <a href="{{ route('account') }}" class="nav-link"><i title="Account" class="mdi mdi-account mdi-48px"></i></a>
                     </li>
 
                     <li class="nav-item">
                         <form action="{{ route('logout') }}" method="POST"> 
                             @csrf
                             @method('POST')
-                            <button type="submit" class="btn btn-link nav-link"><i class="mdi mdi-logout mdi-48px"></i></button>
+                            <button type="submit" class="btn btn-link nav-link"><i title="Log out" class="mdi mdi-logout mdi-48px"></i></button>
                         </form>
                     </li>
                 </ul>
             </nav>
         @else
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="{{ url('/') }}"><i class="mdi mdi-home mdi-48px"></i></a>
+                <a class="navbar-brand" href="{{ url('/') }}"><i title="Home" class="mdi mdi-home mdi-48px"></i></a>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}"><i class="mdi mdi-login mdi-48px"></i></a>
+                        <a class="nav-link" href="{{ route('login') }}"><i title="Log in" class="mdi mdi-login mdi-48px"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}"><i class="mdi mdi-account-plus mdi-48px"></i></a>
+                        <a class="nav-link" href="{{ route('register') }}"><i title="Register" class="mdi mdi-account-plus mdi-48px"></i></a>
                     </li>
                 </ul>
             </nav>
