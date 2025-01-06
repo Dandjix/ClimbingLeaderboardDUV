@@ -6,12 +6,17 @@
 
     <div class="card mb-4">
         <div class="card-header">
-            <h2>{{ $user->name }}</h2>
+            <span class="row align-items-center">
+                @if ($user->admin)
+                <i class="mdi mdi-shield mdi-36px px-3"></i>
+                @endif 
+                <h2>{{ $user->name }}</h2>
+            </span>
         </div>
         <div class="card-body">
             <p><strong>Email:</strong> {{ $user->email }}</p>
             <p><strong>Score:</strong> {{ number_format($user->score, 1) }}</p>
-            <p><strong>Admin:</strong> {{ $user->admin ? 'Yes' : 'No' }}</p>
+            <!-- <p><strong>Admin:</strong> {{ $user->admin ? 'Yes' : 'No' }}</p> -->
         </div>
     </div>
 
