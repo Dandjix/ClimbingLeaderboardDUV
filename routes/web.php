@@ -34,3 +34,8 @@ Route::group(['prefix' => 'blocks', 'middleware' => 'auth'], function () {
 use App\Http\Controllers\ClimbController;
 
 Route::post('/toggle-climb/{blockId}', [ClimbController::class, 'toggleClimb'])->name('toggleClimb');
+
+use App\Http\Controllers\AccountController;
+Route::get('/account', [AccountController::class, 'index'])
+->middleware('auth')
+->name('account');
