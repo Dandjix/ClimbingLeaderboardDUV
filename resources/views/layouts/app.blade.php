@@ -27,8 +27,8 @@
                                 <img title="Account" 
                                 src="{{ asset('storage/' . auth()->user()->profile_picture) }}" 
                                 alt="PP" 
-                                class="img-thumbnail rounded-circle" 
-                                style="width: 64px; height: 64px; object-fit: cover;">
+                                class="rounded-circle" 
+                                style="width:70px; height:70px; object-fit: cover; border: none; padding: 0; ">
                             @else
                                 <i title="Account" class="mdi mdi-account mdi-48px"></i>
                             @endif

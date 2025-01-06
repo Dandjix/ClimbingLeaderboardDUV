@@ -28,14 +28,14 @@
                             @endif
                         </td>
                         <td>
+                            {{ $user->name }}
                             @if ($user->profile_picture)
                                 <img
                                 src="{{ asset('storage/' . $user->profile_picture) }}" 
                                 alt="PP" 
-                                class="img-thumbnail rounded-circle" 
+                                class="rounded-circle" 
                                 style="width: 32px; height: 32px; object-fit: cover;">
                             @endif
-                            {{ $user->name }}
                         </td>
                         <td>{{ number_format($user->score,1)}}</td>
                     </tr>
