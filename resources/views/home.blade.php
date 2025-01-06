@@ -28,7 +28,7 @@
                             @endif
                         </td>
                         <td>{{ $user->name }}</td>
-                        <td>{{ $user->score}}</td>
+                        <td>{{ number_format($user->score,1)}}</td>
                     </tr>
                 @endforeach
             </tbody>
