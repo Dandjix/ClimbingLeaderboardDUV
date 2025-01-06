@@ -16,7 +16,7 @@ class HomeController extends Controller
     public function index()
     {
         // Fetch all climbing blocks
-        $blocks = Block::all();
+        $blocks = Block::orderBy('name', 'asc')->get();
 
         // Get the currently logged-in user, or null if not authenticated
         $user = Auth::user();
